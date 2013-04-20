@@ -5,7 +5,7 @@ import time
 
 class RGBLamp:
   def __init__(self,vDev):
-    # Inicializamos modo OUTPUT en los pines que correspondan
+    # Set arduino pins mode
     self.redPin = 5
     self.greenPin = 6
     self.bluePin = 9
@@ -38,14 +38,13 @@ class RGBLamp:
     return step
 	
   def calculateVal(self,step,val,i):
-    # calcula el valor a establecer en la tira RGB
     if ((step != 0) and (i % step == 0)):
       if (step >= 0):
 	val += 1
     elif (step < 0):
 	val -= 1
 		
-    # el rango del pwm: (0,255)
+    # PWM safe range: (0,255)
     if (val > 255):
       val = 255
 		
@@ -71,7 +70,7 @@ class RGBLamp:
     
       time.sleep(self.wait)
     
-    # actualizar valores para la siguiente iteracion
+    # update values for next iteration
     self.prevR = self.redVal
     self.prevG = self.greenVal
     self.prevB = self.blueVal
@@ -79,11 +78,11 @@ class RGBLamp:
     time.sleep(self.hold)
 
   def setWait(input):
-    # establece el tiempo de espera entre steps
+    # sets wait time between steps
     wait = input
     return 0
 		
   def setHold(input):
-    # establece el tiempo de espera antes de cambiar de color
+    # sets hold time between colours
     hold = input
     return 0
