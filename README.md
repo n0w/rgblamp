@@ -3,7 +3,8 @@ Written by n0w
 
 v1
 
-Python class to smoothly fade between colours using RGB Strip via arduino
+Python class to smoothly fade between colours using RGB Strip via arduino.
+Using arduino lib from https://github.com/vascop/Python-Arduino-Proto-API-v2
 
 (schematics: not yet available)
 
